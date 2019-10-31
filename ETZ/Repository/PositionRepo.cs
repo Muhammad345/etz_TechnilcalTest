@@ -24,13 +24,13 @@ namespace ETZ.Repository
 
         public bool Delete(int key)
         {
-            var firestation = _appDbContext.Positions.Find(key);
-            if (firestation == null)
+            var position = GetSpecific(key);
+            if (position == null)
             {
                 return false;
             }
 
-            _appDbContext.Positions.Remove(firestation);
+            _appDbContext.Positions.Remove(position);
             _appDbContext.SaveChanges();
 
             return true;
@@ -60,11 +60,6 @@ namespace ETZ.Repository
             }
 
             return true;
-        }
-
-        private bool FirestationExists(int id)
-        {
-            return _appDbContext.Positions.Count(e => e.Id == id) > 0;
         }
     }
 }

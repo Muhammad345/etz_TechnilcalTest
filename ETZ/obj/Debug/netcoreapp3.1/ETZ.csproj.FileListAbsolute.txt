@@ -307,3 +307,9 @@ C:\WinTechWork\Learning for Exam\ETZ\ETZ\obj\Debug\netcoreapp3.1\ETZ.Views.pdb
 C:\WinTechWork\Learning for Exam\ETZ\ETZ\obj\Debug\netcoreapp3.1\ETZ.csproj.CopyComplete
 C:\WinTechWork\Learning for Exam\ETZ\ETZ\obj\Debug\netcoreapp3.1\ETZ.dll
 C:\WinTechWork\Learning for Exam\ETZ\ETZ\obj\Debug\netcoreapp3.1\ETZ.pdb
+C:\WinTechWork\Learning for Exam\ETZ\ETZ\obj\Debug\netcoreapp3.1\ETZ.csprojAssemblyReference.cache
+C:\WinTechWork\Learning for Exam\ETZ\ETZ\obj\Debug\netcoreapp3.1\Razor\Views\Positions\Create.cshtml.g.cs
+C:\WinTechWork\Learning for Exam\ETZ\ETZ\obj\Debug\netcoreapp3.1\Razor\Views\Positions\Delete.cshtml.g.cs
+C:\WinTechWork\Learning for Exam\ETZ\ETZ\obj\Debug\netcoreapp3.1\Razor\Views\Positions\Details.cshtml.g.cs
+C:\WinTechWork\Learning for Exam\ETZ\ETZ\obj\Debug\netcoreapp3.1\Razor\Views\Positions\Edit.cshtml.g.cs
+C:\WinTechWork\Learning for Exam\ETZ\ETZ\obj\Debug\netcoreapp3.1\Razor\Views\Positions\Index.cshtml.g.cs

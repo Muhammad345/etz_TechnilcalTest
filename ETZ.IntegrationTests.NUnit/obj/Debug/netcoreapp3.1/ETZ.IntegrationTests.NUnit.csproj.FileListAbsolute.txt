@@ -88,3 +88,4 @@ C:\WinTechWork\Learning for Exam\ETZ\ETZ.IntegrationTests.NUnit\obj\Debug\netcor
 C:\WinTechWork\Learning for Exam\ETZ\ETZ.IntegrationTests.NUnit\obj\Debug\netcoreapp3.1\ETZ.IntegrationTests.NUnit.csproj.CopyComplete
 C:\WinTechWork\Learning for Exam\ETZ\ETZ.IntegrationTests.NUnit\obj\Debug\netcoreapp3.1\ETZ.IntegrationTests.NUnit.dll
 C:\WinTechWork\Learning for Exam\ETZ\ETZ.IntegrationTests.NUnit\obj\Debug\netcoreapp3.1\ETZ.IntegrationTests.NUnit.pdb
+C:\WinTechWork\Learning for Exam\ETZ\ETZ.IntegrationTests.NUnit\obj\Debug\netcoreapp3.1\ETZ.IntegrationTests.NUnit.csprojAssemblyReference.cache

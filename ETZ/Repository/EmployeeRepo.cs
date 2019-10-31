@@ -24,13 +24,13 @@ public class EmployeeRepo : IRepo<Employee>
 
     public bool Delete(int key)
     {
-        var firestation = _appDbContext.Employees.Find(key);
-        if (firestation == null)
+        var employee = GetSpecific(key);
+        if (employee == null)
         {
             return false;
         }
 
-        _appDbContext.Employees.Remove(firestation);
+        _appDbContext.Employees.Remove(employee);
         _appDbContext.SaveChanges();
 
         return true;
@@ -60,11 +60,6 @@ public class EmployeeRepo : IRepo<Employee>
         }
 
         return true;
-    }
-
-    private bool FirestationExists(int id)
-    {
-        return _appDbContext.Employees.Count(e => e.Id == id) > 0;
     }
 }
 }
