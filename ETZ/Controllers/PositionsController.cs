@@ -7,40 +7,23 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ETZ.Data;
 using ETZ.Models;
+using ETZ.Services;
 
 namespace ETZ.Controllers
 {
     public class PositionsController : Controller
     {
-        private readonly AppDbContext _context;
+        private readonly IPositionService PositionService;
 
-        public PositionsController(AppDbContext context)
+        public PositionsController(IPositionService positionService)
         {
-            _context = context;
+            this.PositionService = positionService;
         }
 
         // GET: Positions
-        public async Task<IActionResult> Index()
+        public  IActionResult Index()
         {
-            return View(await _context.Positions.ToListAsync());
-        }
-
-        // GET: Positions/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var position = await _context.Positions
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (position == null)
-            {
-                return NotFound();
-            }
-
-            return View(position);
+            return View(this.PositionService.GetAll());
         }
 
         // GET: Positions/Create
@@ -54,12 +37,12 @@ namespace ETZ.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Description")] Position position)
+        public IActionResult Create([Bind("Id,Description")] Position position)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(position);
-                await _context.SaveChangesAsync();
+                this.PositionService.Create(position);
+
                 return RedirectToAction(nameof(Index));
             }
             return View(position);
@@ -73,7 +56,7 @@ namespace ETZ.Controllers
                 return NotFound();
             }
 
-            var position = await _context.Positions.FindAsync(id);
+            var position = this.PositionService.GetSpecific(id.Value);
             if (position == null)
             {
                 return NotFound();
@@ -97,19 +80,11 @@ namespace ETZ.Controllers
             {
                 try
                 {
-                    _context.Update(position);
-                    await _context.SaveChangesAsync();
+                   var response = this.PositionService.Update(position);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PositionExists(position.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    
                 }
                 return RedirectToAction(nameof(Index));
             }
@@ -124,8 +99,7 @@ namespace ETZ.Controllers
                 return NotFound();
             }
 
-            var position = await _context.Positions
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var position = this.PositionService.GetSpecific(id.Value);
             if (position == null)
             {
                 return NotFound();
@@ -139,15 +113,12 @@ namespace ETZ.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var position = await _context.Positions.FindAsync(id);
-            _context.Positions.Remove(position);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
+            var position = this.PositionService.GetSpecific(id);
 
-        private bool PositionExists(int id)
-        {
-            return _context.Positions.Any(e => e.Id == id);
+            var repoResponse =this.PositionService.Delete(position); // Add any more logic here 
+            
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }
