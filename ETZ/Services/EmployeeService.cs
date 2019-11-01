@@ -41,9 +41,9 @@ namespace ETZ.Services
         {
             var todayDate = DateTime.UtcNow;
             var timeSpan = todayDate.Date.Subtract(dateOfBirth);
-            var years = (timeSpan.TotalDays / NumberDaysInYear).ToString();
+            var years = Math.Round((timeSpan.TotalDays / NumberDaysInYear),0).ToString();
 
-           return $"{years} Year "; 
+           return $"{years} Year"; 
         }
     }
 }
