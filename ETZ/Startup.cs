@@ -31,6 +31,7 @@ namespace WebApplication1
             services.AddTransient<IRepo<Position>, PositionRepo>();
             services.AddTransient<IRepo<Employee>, EmployeeRepo>();
             services.AddTransient<IEmployeeService, EmployeeService>();
+            services.AddTransient<IPositionService, PositionService>();
 
             services.AddDbContext<AppDbContext>(options =>
                  options.UseSqlServer(Configuration.GetConnectionString("ETZContext")));
